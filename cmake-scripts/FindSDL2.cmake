@@ -1,0 +1,46 @@
+
+find_package(Threads)
+
+set(SDL2_SEARCH_PATHS
+    /usr/local/
+    /usr/
+    /opt
+)
+
+find_path(SDL2_INCLUDE_DIR SDL2/SDL.h
+    HINTS
+    PATH_SUFFIXES include
+    PATHS ${SDL2_SEARCH_PATHS}
+)
+
+find_library(SDL2_LIBRARY
+    NAMES SDL2
+    HINTS
+    PATH_SUFFIXES lib64 lib
+    PATHS ${SDL2_SEARCH_PATHS}
+)
+
+if(MINGW)
+    find_library(SDL2MAIN_LIBRARY
+        NAMES SDL2main
+        HINTS
+        PATH_SUFFIXES lib64 lib
+        PATHS ${SDL2_SEARCH_PATHS}
+    )
+else()
+    SET(SDL2MAIN_LIBRARY "")
+endif()
+
+if(SDL2_INCLUDE_DIR AND SDL2_LIBRARY)
+   SET(SDL2_FOUND TRUE)
+endif()
+
+if(SDL2_FOUND)
+    SET(SDL2_LIBRARIES ${SDL2MAIN_LIBRARY} ${SDL2_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+    SET(SDL2_INCLUDE_DIRS ${SDL2_INCLUDE_DIR})
+    MESSAGE(STATUS "Found SDL2: ${SDL2_LIBRARIES}")
+else()
+    MESSAGE(WARNING "Could not find SDL2")
+endif()
+
+mark_as_advanced(SDL2MAIN_LIBRARY CMAKE_THREAD_LIBS_INIT SDL2_LIBRARY SDL2_INCLUDE_DIR SDL2_SEARCH_PATHS)
