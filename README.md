@@ -14,8 +14,9 @@ C/SDL2/FFMPEG client for Utuputki2.
 ## Compiling
 
 1. ```cmake -G "MSYS Makefiles" -DCMAKE_BULD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ..```
-2. make
-3. Profit!
+2. ```make```
+3. ```sudo make install```
+4. Profit!
 
 ## License
 
