@@ -1,8 +1,8 @@
 /*
- * Header file for generic ringbuffer in ringbuffer.c.
+ * Ringbuffer
  *
- * Copyright (c) 2011, Tuomas Virtanen
- * license: GPLv2; see main.c for details.
+ * Copyright (c) 2016, Tuomas Virtanen
+ * license: MIT; see LICENSE for details.
 */
 
 #ifndef __RINGBUFFER_H
