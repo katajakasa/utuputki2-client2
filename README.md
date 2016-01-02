@@ -1,6 +1,6 @@
 # Utuclient2
 
-C++/SFML/FFMpeg client for Utuputki2.
+C/SDL2/FFMPEG client for Utuputki2.
 
 ## Requirements
 
